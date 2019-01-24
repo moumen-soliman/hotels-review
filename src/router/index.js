@@ -11,11 +11,6 @@ export default new Router({
       path: '/',
       name: 'home',
       component: () => import('@/views/Home.vue')
-    },
-    {
-      path: '/:id/',
-      name: 'hotelDetails',
-      component: () => import('@/views/HotelDetails.vue')
     }
   ]
 })
