@@ -1,12 +1,15 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from "vue";
+import Vuex from "vuex";
+import hotelsList from "./modules/hotelsList";
+import hotelDetails from "./modules/hotelDetails";
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 const store = new Vuex.Store({
   modules: {
-    aloha
+    hotelsList,
+    hotelDetails
   }
-})
+});
 
-export default store
+export default store;
