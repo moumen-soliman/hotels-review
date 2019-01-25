@@ -1,20 +1,39 @@
 <template>
   <div class="row">
     <div
-      :class="
-        (currentSelectedID === key.id ? 'active ' : '') +
-          'hotels-cards__item col-4 text-left'
-      "
+      class="hotels-cards__item col-4 text-left"
       v-for="key in hotelsList"
       :key="key.id"
     >
-      <a @click="getSelectedHotelDetails(key.id)">{{ key }}</a>
-      {{
-        currentSelectedID === key.id
-          ? night * key.pricePerNight + " per " + night
-          : key.pricePerNight + " per " + 1
-      }}
-      {{ getScoreOfHotel(key.totalScore) }}
+      <div
+        :class="
+          (currentSelectedID === key.id ? 'active ' : '') +
+            'hotels-cards__item__inner'
+        "
+      >
+        <div class="col-12 no-padding">
+          <a @click="getSelectedHotelDetails(key.id)">
+            <h6>{{ key.name }}</h6>
+          </a>
+        </div>
+        <div class="row">
+          <div class="col-4">
+            <img :src="key.photo" width="80" />
+          </div>
+          <div class="col-8 no-padding">
+            <p>
+              {{
+                currentSelectedID === key.id
+                  ? `$${night * key.pricePerNight} for ${night} night`
+                  : `$${key.pricePerNight} for 1 night`
+              }}
+            </p>
+            <p>{{ key.totalScore }} {{ getScoreOfHotel(key.totalScore) }}</p>
+            <p>{{ `${key.totalReviews} reviews` }}</p>
+          </div>
+        </div>
+        <div class="row"></div>
+      </div>
     </div>
   </div>
 </template>
@@ -49,22 +68,22 @@ export default {
       let message;
       switch (true) {
         case totalScore > 0 && totalScore <= 5:
-          message = 'Not recommended';
+          message = "Not recommended";
           break;
         case totalScore > 5 && totalScore <= 7:
-          message = 'good';
+          message = "good";
           break;
         case totalScore > 7 && totalScore <= 8:
-          message = 'Very good';
+          message = "Very good";
           break;
         case totalScore > 8 && totalScore <= 10:
-          message = 'Excellent';
+          message = "Excellent";
           break;
         default:
-          message = 'No score yet';
+          message = "No score yet";
       }
       return message;
-    },
+    }
   },
   created() {
     // Call get hotel details function and passing first index of hotelsID Array
@@ -74,4 +93,33 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped></style>
+<style lang="scss" scoped>
+.hotels-cards {
+  &__item {
+    padding: 20px;
+    &__inner {
+      box-shadow: 0 6px 15px 0 rgba(36, 37, 38, 0.08);
+      border: 1px solid $gray;
+      padding: 10px;
+      background: $white;
+      opacity: 0.6;
+      a {
+        color: $blue;
+        text-decoration: underline;
+        cursor: pointer;
+        h6 {
+          margin-bottom: 20px;
+        }
+      }
+      img {
+        border-radius: 5px;
+      }
+      &:hover,
+      &.active {
+        opacity: 1;
+        border: 1px solid $blue;
+      }
+    }
+  }
+}
+</style>
