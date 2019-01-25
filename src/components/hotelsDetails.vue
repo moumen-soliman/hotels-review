@@ -4,6 +4,7 @@
       <loading />
     </div>
     <div v-else>
+      <night-price />
       <reviews :reviews="reviews" />
       <gallery :pictures="hotelDetailsImages" />
     </div>
@@ -14,6 +15,7 @@
 import { mapState } from "vuex";
 import gallery from "./gallery";
 import reviews from "./reviews";
+import nightPrice from "./nightPrice";
 import loading from "./loading";
 
 export default {
@@ -21,11 +23,12 @@ export default {
   components: {
     gallery,
     reviews,
+    nightPrice,
     loading
   },
   computed: {
     ...mapState({
-      // Hotel Details actions
+      // Hotel Details States
       hotelDetails: state => state.hotelDetails.all,
       hotelDetailsImages: state => state.hotelDetails.all.pictures,
       reviews: state => state.hotelDetails.all.reviews,
