@@ -1,15 +1,20 @@
 <template>
   <div>
-    <div class="album py-5 bg-light">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4" v-for="post in displayedReviews" :key="post.id">
-            {{ post.review }}
-            {{ post.score }}
+    <div class="reviews col-8">
+      <h3 class="text-left">Reviews</h3>
+      <div class="reviews__container">
+        <div v-for="post in displayedReviews" :key="post.id">
+          <div class="row text-left">
+            <div class="col-1">
+              <span>{{ post.score }}</span>
+            </div>
+            <div class="col-11">
+              <p>{{ post.review }}</p>
+            </div>
           </div>
         </div>
-
-        <div class="clearfix btn-group col-md-2 offset-md-5">
+        <br />
+        <div class="col-12">
           <button
             type="button"
             class="btn btn-sm btn-outline-secondary"
@@ -95,3 +100,37 @@ export default {
   }
 };
 </script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style lang="scss" scoped>
+.reviews {
+  margin: 5px auto;
+  &__container {
+    padding: 0 16px 16px;
+    border: 1px solid $gray;
+    padding-top: 0;
+    .row {
+      padding: 10px;
+      background: $white;
+      border-bottom: 1px solid $gray;
+      opacity: 0.8;
+      &:hover {
+        opacity: 1;
+      }
+      div:first-child {
+        position: relative;
+        height: 56px;
+        border-radius: 50%;
+        border: 1px solid $gray;
+        span {
+          position: absolute;
+          text-align: center;
+          top: 30%;
+          right: 0;
+          left: 0;
+        }
+      }
+    }
+  }
+}
+</style>
