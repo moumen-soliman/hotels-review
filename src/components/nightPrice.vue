@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <select :value="night" @change="updateNight" min="1" max="99">
+  <div class="select-night form-group">
+    <select class="form-control" :value="night" @change="updateNight">
       <option v-for="(key, index) in nightNumber" :value="key" :key="index">
         {{ key }}
       </option>
@@ -41,3 +41,14 @@ export default {
   }
 };
 </script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style lang="scss" scoped>
+.select-night {
+  display: inline;
+  select {
+    width: 10%;
+    display: inline;
+  }
+}
+</style>
