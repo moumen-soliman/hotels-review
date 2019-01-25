@@ -40,7 +40,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: $black;
-    margin-top: 60px;
+    padding-bottom: 20px;
   }
 }
 </style>
