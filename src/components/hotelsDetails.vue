@@ -48,7 +48,9 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
 .selected-hotel {
-  border: 1px solid $gray;
+  border: 1px solid $blue;
   padding: 20px;
+  background-color: $white;
+  box-shadow: 0 6px 15px 0 rgba(36, 37, 38, 0.08);
 }
 </style>
