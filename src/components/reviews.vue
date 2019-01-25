@@ -76,13 +76,18 @@ export default {
     },
     // Sort reviews based on score (from https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore#_sortby-and-_orderby)
     sortBy(key) {
-        return (a, b) => (a[key] > b[key]) ? 1 : ((b[key] > a[key]) ? -1 : 0);
+      return (a, b) => (a[key] > b[key] ? 1 : b[key] > a[key] ? -1 : 0);
     }
   },
   computed: {
     // Passing reviews list on paginate
     displayedReviews() {
-      return this.paginate(this.reviews.concat().sort(this.sortBy("score")).reverse());
+      return this.paginate(
+        this.reviews
+          .concat()
+          .sort(this.sortBy("score"))
+          .reverse()
+      );
     }
   },
   created() {

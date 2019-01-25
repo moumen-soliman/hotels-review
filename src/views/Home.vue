@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <listOfHotels />
-    <hotelsDetails />
+    <list-of-hotels />
+    <hotels-details />
   </div>
 </template>
 

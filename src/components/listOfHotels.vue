@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="hotels-cards">
-      <hotelCard :hotelsList="hotelsList" :hotelsID="hotelsID" />
+      <hotel-card :hotelsList="hotelsList" :hotelsID="hotelsID" />
     </div>
   </div>
 </template>
@@ -17,7 +17,7 @@ export default {
   },
   computed: {
     ...mapState({
-      // Hotels List Actions
+      // Hotels List States
       hotelsList: state => state.hotelsList.all,
       hotelsID: state => state.hotelsList.hotelsIDs
     })
