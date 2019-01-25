@@ -4,9 +4,16 @@
       <loading />
     </div>
     <div v-else>
-      <night-price />
-      <reviews :reviews="reviews" />
-      <gallery :pictures="hotelDetailsImages" />
+      <div class="selected-hotel">
+        <div class="row">
+          <div class="col text-left">
+            <h1>{{ hotelDetails.name }}</h1>
+            <h4>For <night-price /> Nights</h4>
+          </div>
+        </div>
+        <gallery :pictures="hotelDetailsImages" />
+        <reviews :reviews="reviews" />
+      </div>
     </div>
   </div>
 </template>
@@ -39,4 +46,9 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped></style>
+<style lang="scss" scoped>
+.selected-hotel {
+  border: 1px solid $gray;
+  padding: 20px;
+}
+</style>
