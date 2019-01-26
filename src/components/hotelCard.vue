@@ -32,7 +32,6 @@
             <p>{{ `${key.totalReviews} reviews` }}</p>
           </div>
         </div>
-        <div class="row"></div>
       </div>
     </div>
   </div>
