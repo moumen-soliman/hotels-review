@@ -5,7 +5,7 @@ Vue.js v2.5 project
 #### Base
 - Vuejs v2.5
 - Vue CLI v3
-- Vuex for state management
+- Vuex for state management (Flux Architecture)
 - Using single file component as pattern
 
 #### CSS Pre-processor / Framework / Architecture 
