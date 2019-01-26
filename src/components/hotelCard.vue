@@ -1,7 +1,7 @@
 <template>
   <div class="row">
     <div
-      class="hotels-cards__item col-4 text-left"
+      class="hotels-cards__item col-sm-12 col-md-4 col-lg-4 text-left"
       v-for="key in hotelsList"
       :key="key.id"
     >

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="reviews col-8">
+    <div class="reviews col-sm-12 col-md-8 col-lg-8">
       <h3 class="text-left">
         Reviews <span @click="sortChecker = !sortChecker"><b>&#8597;</b></span>
       </h3>
@@ -10,7 +10,7 @@
             <div class="col-1">
               <span>{{ post.score }}</span>
             </div>
-            <div class="col-11">
+            <div class="col-10">
               <p>{{ post.review }}</p>
             </div>
           </div>
