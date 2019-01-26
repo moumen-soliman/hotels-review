@@ -12,9 +12,9 @@
         "
       >
         <div class="col-12 no-padding">
-          <a @click="getSelectedHotelDetails(key.id)">
-            <h6>{{ key.name }}</h6>
-          </a>
+          <h6 @click="getSelectedHotelDetails(key.id)">
+            {{ key.name }}
+          </h6>
         </div>
         <div class="row">
           <div class="col-4">
@@ -102,13 +102,11 @@ export default {
       padding: 10px;
       background: $white;
       opacity: 0.6;
-      a {
+      h6 {
         color: $blue;
         text-decoration: underline;
         cursor: pointer;
-        h6 {
-          margin-bottom: 20px;
-        }
+        margin-bottom: 20px;
       }
       img {
         border-radius: 5px;
