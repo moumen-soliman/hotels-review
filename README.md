@@ -8,8 +8,9 @@ Vue.js v2.5 project
 - Vuex for state management
 - Using single file component as pattern
 
-#### CSS Pre-processor / Framework
+#### CSS Pre-processor / Framework / Architecture 
 - SASS (SCSS)
+- BEM as architecture
 - Bootstrap (remove un-used style by PurgeCSS)
 
 #### Build Tools (Task runner, Linter, bundler)
