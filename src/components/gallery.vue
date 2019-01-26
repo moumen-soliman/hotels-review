@@ -60,10 +60,9 @@ export default {
     &::-webkit-scrollbar-thumb {
       background: #aaaab2;
       border-radius: 50px;
-    }
-    /* Handle on hover */
-    &::-webkit-scrollbar-thumb:hover {
-      background: #aaaab2;
+      &:hover {
+        background: inherit;
+      }
     }
     div {
       display: inline-block;
@@ -73,6 +72,9 @@ export default {
         opacity: 0.5;
         border-radius: 5px;
         cursor: pointer;
+      }
+      &:last-child {
+        margin-right: 0;
       }
       &:hover,
       &.active {
