@@ -1,7 +1,9 @@
 <template>
   <div>
     <div class="reviews col-8">
-      <h3 class="text-left">Reviews <span @click="sortChecker = !sortChecker"><b>&#8597;</b></span></h3>
+      <h3 class="text-left">
+        Reviews <span @click="sortChecker = !sortChecker"><b>&#8597;</b></span>
+      </h3>
       <div class="reviews__container">
         <div v-for="post in displayedReviews" :key="post.id">
           <div class="row text-left">
@@ -83,18 +85,14 @@ export default {
     // Sort reviews based on score (from https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore#_sortby-and-_orderby)
     sortBy(key) {
       if (this.sortChecker) {
-        return (a, b) => (a[key] > b[key] ? 1 : b[key] > a[key] ? -1 : 0)
+        return (a, b) => (a[key] > b[key] ? 1 : b[key] > a[key] ? -1 : 0);
       }
     }
   },
   computed: {
     // Passing reviews list on paginate
     displayedReviews() {
-      return this.paginate(
-        this.reviews
-          .concat()
-          .sort(this.sortBy("score"))
-      );
+      return this.paginate(this.reviews.concat().sort(this.sortBy("score")));
     }
   },
   created() {
