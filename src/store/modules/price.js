@@ -4,7 +4,7 @@ const state = {
 };
 
 // mutations
-const mutations = {
+export const mutations = {
   SET_NIGHT_NUMBER: (state, value) => (state.night = value)
 };
 

@@ -9,7 +9,7 @@ const state = {
 };
 
 // actions
-const actions = {
+export const actions = {
   LOAD_HOTEL_SELECTED_DETAILS_LIST: async ({ commit }, payload) => {
     commit("SET_LOADING", true);
     commit("SET_CURRENT_ID_SELECTED", payload);
@@ -25,7 +25,7 @@ const actions = {
 };
 
 // mutations
-const mutations = {
+export const mutations = {
   SET_HOTEL_DETAILS_LIST: (state, { list }) => (state.all = list),
   SET_CURRENT_ID_SELECTED: (state, value) => (state.currentSelectedID = value),
   SET_LOADING: (state, value) => (state.isLoading = value)

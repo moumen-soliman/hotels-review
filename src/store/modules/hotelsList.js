@@ -9,7 +9,7 @@ const state = {
 };
 
 // actions
-const actions = {
+export const actions = {
   LOAD_HOTELS_LIST: async ({ commit }) => {
     commit("SET_LOADING", true);
     await axios;
@@ -22,7 +22,7 @@ const actions = {
 };
 
 // mutations
-const mutations = {
+export const mutations = {
   SET_HOTELS_LIST: (state, { list }) => {
     (state.all = list), (state.hotelsIDs = list.map(getID => getID.id));
   },
