@@ -91,11 +91,7 @@ export default {
     // Passing reviews list on paginate
     displayedReviews() {
       let reviewsArr = this.reviews.concat().sort(this.sortBy("score"));
-      if (this.sortChecker) {
-        return this.paginate(reviewsArr);
-      } else {
-        return this.paginate(reviewsArr.reverse());
-      }
+      return this.paginate(this.sortChecker ? reviewsArr : reviewsArr.reverse());
     }
   },
   created() {
