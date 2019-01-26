@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="reviews col-8">
-      <h3 class="text-left">Reviews</h3>
+      <h3 class="text-left">Reviews <span @click="sortChecker = !sortChecker"><b>&#8597;</b></span></h3>
       <div class="reviews__container">
         <div v-for="post in displayedReviews" :key="post.id">
           <div class="row text-left">
@@ -56,7 +56,8 @@ export default {
     return {
       page: 1,
       perPage: 3,
-      pages: []
+      pages: [],
+      sortChecker: false
     };
   },
   methods: {
@@ -81,7 +82,9 @@ export default {
     },
     // Sort reviews based on score (from https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore#_sortby-and-_orderby)
     sortBy(key) {
-      return (a, b) => (a[key] > b[key] ? 1 : b[key] > a[key] ? -1 : 0);
+      if (this.sortChecker) {
+        return (a, b) => (a[key] > b[key] ? 1 : b[key] > a[key] ? -1 : 0)
+      }
     }
   },
   computed: {
@@ -91,7 +94,6 @@ export default {
         this.reviews
           .concat()
           .sort(this.sortBy("score"))
-          .reverse()
       );
     }
   },
@@ -105,6 +107,13 @@ export default {
 <style lang="scss" scoped>
 .reviews {
   margin: 5px auto;
+  h3 {
+    span {
+      cursor: pointer;
+      font-size: 1.3em;
+      margin-left: 0.2em;
+    }
+  }
   &__container {
     padding: 0 16px 16px;
     border: 1px solid $gray;
