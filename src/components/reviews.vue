@@ -69,7 +69,7 @@ export default {
      * pages data to count number of index in array and get number of pages.
     .*/
     setPages() {
-      let numberOfPages = Math.ceil(this.reviews.length / this.perPage);
+      let numberOfPages = Math.floor(this.reviews.length / this.perPage);
       for (var index = 1; index <= numberOfPages; index++) {
         this.pages.push(index);
       }
@@ -84,15 +84,18 @@ export default {
     },
     // Sort reviews based on score (from https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore#_sortby-and-_orderby)
     sortBy(key) {
-      if (this.sortChecker) {
-        return (a, b) => (a[key] > b[key] ? 1 : b[key] > a[key] ? -1 : 0);
-      }
+      return (a, b) => (a[key] > b[key] ? 1 : b[key] > a[key] ? -1 : 0);
     }
   },
   computed: {
     // Passing reviews list on paginate
     displayedReviews() {
-      return this.paginate(this.reviews.concat().sort(this.sortBy("score")));
+      let reviewsArr = this.reviews.concat().sort(this.sortBy("score"));
+      if (this.sortChecker) {
+        return this.paginate(reviewsArr);
+      } else {
+        return this.paginate(reviewsArr.reverse());
+      }
     }
   },
   created() {
