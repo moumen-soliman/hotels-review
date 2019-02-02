@@ -1,19 +1,17 @@
 import apiData from "@/api";
-import axios from "axios";
 
 // initial state
 const state = {
-  all: Array,
-  isLoading: Boolean,
-  currentSelectedID: Number
+  all: [],
+  isLoading: false,
+  currentSelectedID: 0
 };
 
 // actions
 export const actions = {
-  LOAD_HOTEL_SELECTED_DETAILS_LIST: async ({ commit }, payload) => {
+  LOAD_HOTEL_SELECTED_DETAILS_LIST: ({ commit }, payload) => {
     commit("SET_LOADING", true);
     commit("SET_CURRENT_ID_SELECTED", payload);
-    await axios;
     apiData()
       .get(`hotelDetails/${payload}`)
       .then(response =>

@@ -1,18 +1,16 @@
 import apiData from "@/api";
-import axios from "axios";
 
 // initial state
 const state = {
-  all: Array,
-  hotelsIDs: Array,
-  isLoading: Boolean
+  all: [],
+  hotelsIDs: [],
+  isLoading: false
 };
 
 // actions
 export const actions = {
-  LOAD_HOTELS_LIST: async ({ commit }) => {
+  LOAD_HOTELS_LIST: ({ commit }) => {
     commit("SET_LOADING", true);
-    await axios;
     apiData()
       .get("hotels")
       .then(response => commit("SET_HOTELS_LIST", { list: response.data }))
