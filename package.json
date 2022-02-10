@@ -11,7 +11,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "^4.2.1",
-    "node-sass": "^4.11.0",
+    "node-sass": "^7.0.0",
     "prettier": "^1.16.1",
     "sass-loader": "^7.1.0",
     "style-resources-loader": "^1.2.1",
